@@ -1,89 +1,71 @@
-/*											  MAZE
-	day 1:16-5-13
-	day 2:20-5-13
-*/
-
-#include<iostream>
+#include<iostream.h>
 #include<conio.h>
 #include<graphics.h>
-#include<stdlib>
+#include<stdlib.h>
 
 void maze(int,int);
 
-void main()
-	{
+void main(){
 		int gd=DETECT,gm,x,y;
 		char ch=0;
 		initgraph(&gd,&gm,"..\\bgi");
-
 		setaspectratio(1600,1280);
-
-
 		x=80,y=40;
 		maze(x,y);
 		ch=0;
 
-		while(ch!=27)
-			{
+		while(ch!=27){
 				ch=getch();
-				if((x==80&&y==40)&&(ch!=80))
-					{
+				if((x==80&&y==40)&&(ch!=80)){
 						outtextxy(350,200,"Invalid Input!!!!");
 						continue;
-					}
+				}
 
-				switch(ch)
-					{
-						case 72:       //up
-							if(getpixel(x,y-10)==3)
-								{
-									outtextxy(350,200,"Invalid Input!!!!");
-									continue;
-								}
-							else
-								y-=10;
+				switch(ch){
+					case 72:       //up
+						if(getpixel(x,y-10)==3){
+							outtextxy(350,200,"Invalid Input!!!!");
+							continue;
+						}
+						else
+							y-=10;
 						break;
 
-						case 80:    //down
-							if(getpixel(x,y+10)==3)
-								{
-									outtextxy(350,200,"Invalid Input!!!!");
-									continue;
-								}
-							else
-								y+=10;
+					case 80:    //down
+						if(getpixel(x,y+10)==3){
+							outtextxy(350,200,"Invalid Input!!!!");
+							continue;
+						}
+						else
+							y+=10;
 						break;
 
-						case 77:		  //right
-							if(getpixel(x+10,y)==3)
-								{
-									outtextxy(350,200,"Invalid Input!!!!");
-									continue;
-								}
-							else
-								x+=10;
+					case 77:		  //right
+						if(getpixel(x+10,y)==3){
+							outtextxy(350,200,"Invalid Input!!!!");
+							continue;
+						}
+						else
+							x+=10;
 						break;
 
-						case 75:		//left
-							if(getpixel(x-10,y)==3)
-								{
-									outtextxy(350,200,"Invalid Input!!!!");
-									continue;
-								}
-							else
-								x-=10;
+					case 75:		//left
+						if(getpixel(x-10,y)==3){
+							outtextxy(350,200,"Invalid Input!!!!");
+							continue;
+						}
+						else
+							x-=10;
 						break;
-					}
+				}
 
 				cleardevice();
 				maze(x,y);
 
-				if(x==310)
-					{
-
+				if(x==310){
 						outtextxy(350,200,"You Won!!!");
 						break;
-					}
+				}
 			}
 
 
@@ -93,8 +75,7 @@ void main()
 	}
 
 
-void maze(int x,int y)
-	{
+void maze(int x,int y){
 		setcolor(3);
 		line(50,50,70,50);
 		line(90,50,290,50);
