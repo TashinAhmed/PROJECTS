@@ -15,64 +15,60 @@ void main(){
 		ch=0;
 
 		while(ch!=27){
-				ch=getch();
-				if((x==80&&y==40)&&(ch!=80)){
+			ch=getch();
+			if((x==80&&y==40)&&(ch!=80)){
+					outtextxy(350,200,"Invalid Input!!!!");
+					continue;
+				}
+
+			switch(ch){
+				case 72:       //up
+					if(getpixel(x,y-10)==3){
 						outtextxy(350,200,"Invalid Input!!!!");
 						continue;
-				}
-
-				switch(ch){
-					case 72:       //up
-						if(getpixel(x,y-10)==3){
-							outtextxy(350,200,"Invalid Input!!!!");
-							continue;
-						}
-						else
-							y-=10;
-						break;
-
-					case 80:    //down
-						if(getpixel(x,y+10)==3){
-							outtextxy(350,200,"Invalid Input!!!!");
-							continue;
-						}
-						else
-							y+=10;
-						break;
-
-					case 77:		  //right
-						if(getpixel(x+10,y)==3){
-							outtextxy(350,200,"Invalid Input!!!!");
-							continue;
-						}
-						else
-							x+=10;
-						break;
-
-					case 75:		//left
-						if(getpixel(x-10,y)==3){
-							outtextxy(350,200,"Invalid Input!!!!");
-							continue;
-						}
-						else
-							x-=10;
-						break;
-				}
-
-				cleardevice();
-				maze(x,y);
-
-				if(x==310){
-						outtextxy(350,200,"You Won!!!");
-						break;
-				}
+					}
+					else
+						y-=10;
+					break;
+				case 80:    //down
+					if(getpixel(x,y+10)==3){
+						outtextxy(350,200,"Invalid Input!!!!");
+						continue;
+					}
+					else
+						y+=10;
+					break;
+				case 77:		  //right
+					if(getpixel(x+10,y)==3){
+						outtextxy(350,200,"Invalid Input!!!!");
+						continue;
+					}
+					else
+						x+=10;
+					break;
+				case 75:		//left
+					if(getpixel(x-10,y)==3){
+						outtextxy(350,200,"Invalid Input!!!!");
+						continue;
+					}
+					else
+						x-=10;
+					break;
 			}
 
+			cleardevice();
+			maze(x,y);
+
+			if(x==310){
+					outtextxy(350,200,"You Won!!!");
+					break;
+			}
+		}
 
 		outtextxy(250,250,"press any key to exit.");
 		getch();
 		closegraph();
-	}
+}
 
 
 void maze(int x,int y){
@@ -120,4 +116,4 @@ void maze(int x,int y){
 		circle(x,y,3);
 		setfillstyle(1,2);
 		floodfill(x,y,14);
-	}
+}
