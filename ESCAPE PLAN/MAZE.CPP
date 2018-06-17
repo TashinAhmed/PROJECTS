@@ -1,4 +1,4 @@
-// MAZE GENERATING
+// GENERATING MAZE
 #include<iostream.h>
 #include<conio.h>
 #include<graphics.h>
