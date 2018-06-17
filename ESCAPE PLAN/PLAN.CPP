@@ -1,5 +1,3 @@
-//a circular rat finds its path in the maze by itself.
-
 #include<iostream.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -13,25 +11,21 @@ void ratmove(int,int,int);
 void win();
 void title();
 
-void main()
-	{
+void main(){
 		int gd=DETECT,gm,x,y;
 		initgraph(&gd,&gm,"..\\bgi");
 		title();
-
 		x=90,y=50;
 		maze(x,y);
 		int s=3;
 		ratmove(x,y,s);
-		//program will end in ratmove() function
-	}
+}
 
 
 
 
 
-void maze(int x,int y)
-	{
+void maze(int x,int y){
 		rectangle(0,0,639,479);
 		circle(x,y,3);
 		line(50,50,50,300);
@@ -68,80 +62,63 @@ void maze(int x,int y)
 
 		setcolor(YELLOW);
 		circle(170,180,10);
-	}
+}
 
-void ratmove(int x,int y,int s)
-	{
+void ratmove(int x,int y,int s){
 		setcolor(15);
 		circle(x,y,3);
-		if(x==160&&y==180)
-			{
-
+		if(x==160&&y==180){
 				delay(100);
 				setcolor(0);
 				circle(x,y,3);
 				win();
-			}
+		}
 		delay(20);
-		switch(s)
-			{
-				case 1:
-					if(getpixel(x-10,y)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x-10,y,4);   }
-					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x,y-10)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x,y-10,1);   }
-					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x+10,y)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x+10,y,2);   }
-					setcolor(15);   circle(x,y,3);   delay(20);
-					setcolor(0);   circle(x,y,3);
-					break;
+		switch(s){
+			case 1:
+				if(getpixel(x-10,y)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x-10,y,4);   }
+				setcolor(15);   circle(x,y,3);   delay(20);
+				if(getpixel(x,y-10)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x,y-10,1);   }
+				setcolor(15);   circle(x,y,3);   delay(20);
+				if(getpixel(x+10,y)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x+10,y,2);   }
+				setcolor(15);   circle(x,y,3);   delay(20);
+				setcolor(0);   circle(x,y,3);
+				break;
 
 				case 2:
-					if(getpixel(x,y-10)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x,y-10,1);   }
+					if(getpixel(x,y-10)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x,y-10,1);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x+10,y)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x+10,y,2);   }
+					if(getpixel(x+10,y)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x+10,y,2);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x,y+10)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x,y+10,3);   }
+					if(getpixel(x,y+10)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x,y+10,3);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
 					setcolor(0);   circle(x,y,3);
 					break;
 
 				case 3:
-					if(getpixel(x+10,y)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x+10,y,2);   }
+					if(getpixel(x+10,y)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x+10,y,2);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x,y+10)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x,y+10,3);   }
+					if(getpixel(x,y+10)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x,y+10,3);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x-10,y)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x-10,y,4);   }
+					if(getpixel(x-10,y)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x-10,y,4);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
 					setcolor(0);   circle(x,y,3);
 					break;
 
 				case 4:
-					if(getpixel(x,y+10)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x,y+10,3);   }
+					if(getpixel(x,y+10)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x,y+10,3);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x-10,y)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x-10,y,4);   }
+					if(getpixel(x-10,y)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x-10,y,4);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
-					if(getpixel(x,y-10)!=w)
-						{ setcolor(0);   circle(x,y,3);   ratmove(x,y-10,1);   }
+					if(getpixel(x,y-10)!=w){ setcolor(0);   circle(x,y,3);   ratmove(x,y-10,1);   }
 					setcolor(15);   circle(x,y,3);   delay(20);
 					setcolor(0);   circle(x,y,3);
 					break;
 			}
-	}
+}
 
 
-void win()
-	{
+void win(){
 		setcolor(15);
 		circle(170,180,3);
 		settextstyle(3,0,6);
@@ -154,14 +131,12 @@ void win()
 		outtextxy(100,450,"Press any key to exit.");
 		getch();
 		exit(0);
-	}
+}
 
-void title()
-	{
+void title(){
 		setcolor(11);
 		settextstyle(3,0,7);
-		for(int i=479;i>=0;i-=5)
-			{
+		for(int i=479;i>=0;i-=5){
 				cleardevice();
 				outtextxy(i,100,"Circular Rat's Maze");
 				delay(10);
@@ -192,4 +167,4 @@ void title()
 		delay(1000);
 		cleardevice();
 		setcolor(15);
-	}
+}
